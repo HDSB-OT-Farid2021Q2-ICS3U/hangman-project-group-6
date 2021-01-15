@@ -125,12 +125,12 @@ words = ['butterball','elephant','tree','computer','bank','apple',
         ]
 
 guesses = 6
-word = random.choice(words)
+word = random.choice(words).lower()
 word = list(word)
 
 while guesses > 0:
   hidden_word = [print("-", end = "") for x in word]
-  guess = input("\nEnter a letter: ")
+  guess = input("\nEnter a letter: ").lower()
   if guess in word:
     print("You have guessed a correct letter!")
     if guess in hidden_word: hidden_word.replace(guess)
