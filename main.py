@@ -2,6 +2,10 @@
 # TODO @TK create user input letter + check if letter is in string function
 # TODO @clarrie create draw hangman function + display letter bank
 
+import random
+import os
+import time
+
 def whichdrawing(wrongguesses):
     if wrongguesses == 0:
         start()
@@ -97,18 +101,16 @@ def rightleg():
 
 
 def letterbank(userinputletter):
-    letterbank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    
+    letterbank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                  'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+                  's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+                 ]
     newbank = [letterbank[x] if userinputletter not in letterbank[x] else '_' for x in range(len(letterbank))]
-    
     print(newbank)
 
 lettertoguess = input('Which letter would you like to guess? ')
 letterbank(lettertoguess)
 
-import random
-import os
-import time
 
 def clear():
   os.system("clear")
@@ -117,7 +119,7 @@ words = ['butterball','elephant','tree','computer','bank','apple',
          'house','orange','Albania','Armenia','Austria','Belgium',
          'Bulgaria','Lamborghini','Toyota','Mercedes','Honda',
          'Nissan','Chile','Pear','Calculator','Oven','Cat',
-         'Llizzard','Iguana','Google','Phone','Wheels','Mouse',
+         'Llizard','Iguana','Google','Phone','Wheels','Mouse',
          'Lion','Leafs','Montreal','Toronto','California','Stump',
          'Japan','Tokyo','Fast','Furious','Supra','super','Skyline',
          'dinosaur','Case','Dirtbike','Yamaha','Mercury','Volvo',
