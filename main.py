@@ -7,19 +7,19 @@ import os
 import time
 
 def whichdrawing(wrongguesses):
-    if wrongguesses == 0:
+    if wrongguesses == 6:
         start()
-    elif wrongguesses == 1:
+    elif wrongguesses == 5:
         head()
-    elif wrongguesses == 2:
+    elif wrongguesses == 4:
         torso()
     elif wrongguesses == 3:
         leftarm()
-    elif wrongguesses == 4:
+    elif wrongguesses == 2:
         rightarm()
-    elif wrongguesses == 5:
+    elif wrongguesses == 1:
         leftleg()
-    elif wrongguesses == 6:
+    elif wrongguesses == 0:
         rightleg()
 
 def start():
