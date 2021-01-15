@@ -6,6 +6,9 @@ import random
 import os
 import time
 
+def clear():
+  os.system("clear")
+
 def whichdrawing(wrongguesses):
     if wrongguesses == 6:
         start()
@@ -111,8 +114,7 @@ def letterbank(userinputletter):
 #letterbank(lettertoguess)
 
 
-def clear():
-  os.system("clear")
+
 
 words = ['butterball','elephant','tree','computer','bank','apple',
          'house','orange','Albania','Armenia','Austria','Belgium',
