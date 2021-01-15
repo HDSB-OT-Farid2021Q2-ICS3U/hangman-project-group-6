@@ -2,6 +2,10 @@
 # TODO @TK create user input letter + check if letter is in string function
 # TODO @clarrie create draw hangman function + display letter bank
 
+import random
+import os
+import time
+
 def whichdrawing(wrongguesses):
     if wrongguesses == 0:
         start()
@@ -106,9 +110,6 @@ def letterbank(userinputletter):
 lettertoguess = input('Which letter would you like to guess? ')
 letterbank(lettertoguess)
 
-import random
-import os
-import time
 
 def clear():
   os.system("clear")
