@@ -107,8 +107,8 @@ def letterbank(userinputletter):
     
     print(newbank)
 
-lettertoguess = input('Which letter would you like to guess? ')
-letterbank(lettertoguess)
+#lettertoguess = input('Which letter would you like to guess? ')
+#letterbank(lettertoguess)
 
 
 def clear():
