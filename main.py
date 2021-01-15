@@ -137,6 +137,7 @@ while guesses > 0:
   else:
     guesses -= 1
     print("Sorry, you have entered an incorrect letter.")
+    whichdrawing(guesses)
     print("You have {} guesses left.".format(guesses))
     time.sleep(3)
     clear()
