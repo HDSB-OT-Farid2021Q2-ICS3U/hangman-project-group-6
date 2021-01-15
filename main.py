@@ -101,10 +101,11 @@ def rightleg():
 
 
 def letterbank(userinputletter):
-    letterbank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    
+    letterbank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                  'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+                  's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
+                 ]
     newbank = [letterbank[x] if userinputletter not in letterbank[x] else '_' for x in range(len(letterbank))]
-    
     print(newbank)
 
 lettertoguess = input('Which letter would you like to guess? ')
