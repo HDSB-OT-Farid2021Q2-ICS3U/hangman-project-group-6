@@ -107,10 +107,6 @@ def letterbank(userinputletter):
     
     print(newbank)
 
-#lettertoguess = input('Which letter would you like to guess? ')
-#letterbank(lettertoguess)
-
-
 def clear():
   os.system("clear")
 
@@ -132,6 +128,7 @@ word = list(word)
 while guesses > 0:
   hidden_word = [print("-", end = "") for x in word]
   guess = input("\nEnter a letter: ").lower()
+  letterbank(guess)
   if guess in word:
     print("You have guessed a correct letter!")
     if guess in hidden_word: hidden_word.replace(guess)
