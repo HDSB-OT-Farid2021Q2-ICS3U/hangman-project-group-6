@@ -136,7 +136,6 @@ while guesses > 0:
     time.sleep(3)
     clear()
 if guesses == 0:
-  word = [x for x in word]
   print("Sorry, the word was:")
-  print(word, end = "")
-  print("Better luck next time!")
+  word = [print(x, end = "") for x in word]
+  print("\nBetter luck next time!")
