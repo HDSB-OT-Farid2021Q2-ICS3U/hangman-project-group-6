@@ -99,14 +99,6 @@ def rightleg():
     |
     -----------""")
 
-
-def letterbank(userinputletter):
-    letterbank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    
-    newbank = [letterbank[x] if userinputletter not in letterbank[x] else '_' for x in range(len(letterbank))]
-    
-    print(newbank)
-
 def clear():
   os.system("clear")
 
@@ -124,11 +116,13 @@ words = ['butterball','elephant','tree','computer','bank','apple',
 guesses = 6
 word = random.choice(words).lower()
 word = list(word)
-
+letterbank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    
 while guesses > 0:
   hidden_word = [print("-", end = "") for x in word]
   guess = input("\nEnter a letter: ").lower()
-  letterbank(guess)
+  newbank = [letterbank[x] if guess not in letterbank[x] else '_' for x in range(len(letterbank))]
+  print(newbank)
   if guess in word:
     print("You have guessed a correct letter!")
     if guess in hidden_word: hidden_word.replace(guess)
@@ -143,3 +137,4 @@ while guesses > 0:
     word = [print(x) for x in word]
     print("Sorry, the word was \"{}\"".format(word))
     print("Better luck next time!")
+  letterbank = newbank
