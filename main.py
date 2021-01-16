@@ -7,7 +7,10 @@ import os
 import time
 
 def clear():
-  os.system("clear")
+    if os.name == 'posix':
+        os.system('clear')
+    else:
+        os.system('cls')
 
 def whichdrawing(wrongguesses):
     if wrongguesses == 6:
@@ -101,6 +104,8 @@ def rightleg():
 |   /   \
 |
 -----------""")
+
+
 
 
 words = ['butterball','elephant','tree','computer','bank','apple',
