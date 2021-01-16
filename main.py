@@ -6,6 +6,9 @@ import random
 import os
 import time
 
+def clear():
+  os.system("clear")
+
 def whichdrawing(wrongguesses):
     if wrongguesses == 6:
         start()
@@ -23,84 +26,82 @@ def whichdrawing(wrongguesses):
         rightleg()
 
 def start():
-    print(r"""_______           
-    |
-    |
-    |
-    |
-    |
-    |
-    |
-    -----------""")
+  print(r"""_______           
+|     |
+|
+|
+|
+|
+|
+|
+-----------""")
 
 def head():
-    print(r"""_______           
-    |
-    |     O
-    |
-    |
-    |
-    |
-    |
-    -----------""")
+  print(r"""_______           
+|     |
+|     O
+|
+|
+|
+|
+|
+-----------""")
 
 def torso():
-    print(r"""_______           
-    |
-    |     O
-    |     |
-    |     |
-    |
-    |
-    |
-    -----------""")
+  print(r"""_______           
+|     |
+|     O
+|     |
+|     |
+|
+|
+|
+-----------""")
 
 def leftarm():
-    print(r"""_______           
-    |
-    |     O
-    |    /|
-    |   / |
-    |
-    |
-    |
-    -----------""")
+  print(r"""_______           
+|     |
+|     O
+|    /|
+|   / |
+|
+|
+|
+-----------""")
 
 def rightarm():
-    print(r"""_______           
-    |
-    |     O
-    |    /|\
-    |   / | \
-    |    
-    |      
-    |
-    -----------""")
+  print(r"""_______           
+|     |
+|     O
+|    /|\
+|   / | \
+|    
+|      
+|
+-----------""")
 
 def leftleg():
-    print(r"""_______           
-    |
-    |     O
-    |    /|\
-    |   / | \
-    |    / 
-    |   /  
-    |
-    -----------""")
+  print(r"""_______           
+|     |
+|     O
+|    /|\
+|   / | \
+|    / 
+|   /  
+|
+-----------""")
 
 def rightleg():
-    print(r"""_______           
-    |
-    |     O
-    |    /|\
-    |   / | \
-    |    / \
-    |   /   \
-    |
-    -----------""")
+  print(r"""_______           
+|     |
+|     O
+|    /|\
+|   / | \
+|    / \
+|   /   \
+|
+-----------""")
 
-def clear():
-  os.system("clear")
 
 words = ['butterball','elephant','tree','computer','bank','apple',
          'house','orange','Albania','Armenia','Austria','Belgium',
@@ -116,25 +117,26 @@ words = ['butterball','elephant','tree','computer','bank','apple',
 guesses = 6
 word = random.choice(words).lower()
 word = list(word)
-letterbank = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+guessed_letters = []
     
 while guesses > 0:
-  hidden_word = [print("-", end = "") for x in word]
-  guess = input("\nEnter a letter: ").lower()
-  newbank = [letterbank[x] if guess not in letterbank[x] else '_' for x in range(len(letterbank))]
-  print(newbank)
+  hidden_word = [x if x in guessed_letters else '-' for x in word]
+  print(" ".join(hidden_word))
+  whichdrawing(guesses)
+  guess = input("\nEnter a letter: ")
+  guessed_letters.append(guess)
   if guess in word:
     print("You have guessed a correct letter!")
-    if guess in hidden_word: hidden_word.replace(guess)
+    time.sleep(3)
+    clear()
   else:
     guesses -= 1
     print("Sorry, you have entered an incorrect letter.")
-    whichdrawing(guesses)
     print("You have {} guesses left.".format(guesses))
     time.sleep(3)
     clear()
-  if guesses == 0:
-    word = [print(x) for x in word]
-    print("Sorry, the word was \"{}\"".format(word))
-    print("Better luck next time!")
-  letterbank = newbank
+if guesses == 0:
+  word = [x for x in word]
+  print("Sorry, the word was:")
+  print(word, end = "")
+  print("Better luck next time!")
