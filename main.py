@@ -125,6 +125,7 @@ while guesses > 0:
   whichdrawing(guesses)
   guess = input("\nEnter a letter: ")
   guessed_letters.append(guess)
+  print(guessed_letters)
   if guess in word:
     print("You have guessed a correct letter!")
     time.sleep(3)
