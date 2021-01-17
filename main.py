@@ -125,22 +125,35 @@ word = list(word)
 guessed_letters = []
     
 while guesses > 0:
-  hidden_word = [x if x in guessed_letters else '-' for x in word]
-  print(" ".join(hidden_word))
-  whichdrawing(guesses)
-  guess = input("\nEnter a letter: ")
-  guessed_letters.append(guess)
-  print(guessed_letters)
-  if guess in word:
-    print("You have guessed a correct letter!")
-    time.sleep(3)
-    clear()
-  else:
-    guesses -= 1
-    print("Sorry, you have entered an incorrect letter.")
-    print("You have {} guesses left.".format(guesses))
-    time.sleep(3)
-    clear()
+    hidden_word = [x if x in guessed_letters else '-' for x in word]
+    print(" ".join(hidden_word))
+    whichdrawing(guesses)
+    guess = input("\nEnter a letter: ")
+    guess = guess.lower()
+
+    if guess.isalpha() == True:
+        guessed_letters.append(guess)
+        print(guessed_letters)
+        if guess in word:
+            print("You have guessed a correct letter!")
+            time.sleep(3)
+            clear()
+        else:
+            guesses -= 1
+            print("Sorry, you have entered an incorrect letter.")
+            print("You have {} guesses left.".format(guesses))
+            time.sleep(3)
+            clear()
+    else:
+        print('You have entered an invalid input please try again with a letter')
+        time.sleep(3)
+        clear()
+    
+
+
+
+
+
 if guesses == 0:
   print("Sorry, the word was:")
   word = [print(x, end = "") for x in word]
