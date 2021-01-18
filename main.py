@@ -142,31 +142,30 @@ while play == 'Y':
       
 
       if guess.isalpha() == True and len(guess) == 1:#Here we are making sure the users input is a letter and not more than digit
-          guessed_letters.append(guess)#Adding the users letter to the list of guessed letters
-          print(guessed_letters)#Printing the letters the user has already geussed so they can see them
-          if guess in word:#If the users geuss is in the word from the wordbank tell them it is correct
+            guessed_letters.append(guess)#Adding the users letter to the list of guessed letters
+            print(guessed_letters)#Printing the letters the user has already geussed so they can see them
+            if guess in word:#If the users geuss is in the word from the wordbank tell them it is correct
               print("You have guessed a correct letter!")
-              time.sleep(3)#Giving the user 3 second before clearing the screen
-              clear()#cleraing the screen
-          else:
-              guesses -= 1
-              print("Sorry, you have entered an incorrect letter.")
-              print("You have {} guesses left.".format(guesses))
-              time.sleep(3)
-              clear()
+              
+            else:
+                guesses -= 1#If the user geussed an inccorect letter than they come here and we take away one of their lives
+                print("Sorry, you have entered an incorrect letter.")
+                print("You have {} guesses left.".format(guesses))#telling them how many lives they have left
+            time.sleep(3)
+            clear()
       else:
-          print('You have entered an invalid input please try again')
-          time.sleep(3)
-          clear()  
-  if guesses == 0:
+            print('You have entered an invalid input please try again')#If the users input is not a letter or longer than a digit telling them that then they just retart without taking away any lives
+            time.sleep(3)#giving them 3 seconds before screen is cleared
+            clear()  #clearing screen
+  if guesses == 0:#If they have exhausted all their lives they are here
     print("Sorry, the word was:")
-    word = [print(x, end = "") for x in word]
+    word = [print(x, end = "") for x in word]#printing the word the user was trying to geuss
     print("\nBetter luck next time!")
-  else:
-    print('You win!')
+  else:#Otherwise if they are here that is because we broke the loop above when they geussed the word
+    print('You win!')#telling them they won
 
-  play = input('Would you like to play again? [Y/N] ').upper()
-  if play == 'N':
+  play = input('Would you like to play again? [Y/N] ').upper()#Asking them if they would like to play again and uppercasing the letter
+  if play == 'N':#If the user inptus n then printing and letting the porgram end
     print('Bye!')
-  elif play == 'Y':
+  elif play == 'Y':#If they input W restarting the loop
     continue
