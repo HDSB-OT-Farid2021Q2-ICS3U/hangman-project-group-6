@@ -1,4 +1,6 @@
-
+# Clarrie,Tk,Austin
+# date and time completed: Jn 18 2021
+#We have creted a hangman project that asks the user to geuss letters to see if they can get the word that we have pulled from our wordbank
 
 
 #importing all of the libraries we need
