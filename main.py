@@ -2,16 +2,22 @@
 # TODO @TK create user input letter + check if letter is in string function
 # TODO @clarrie create draw hangman function + display letter bank
 
+
+#importing all of the libraries we need
 import random
 import os
 import time
 
+#Here we are creating the clear fucntion to clear the screen for both windows and mac os.
+
 def clear():
-    if os.name == 'posix':
+    if os.name == 'posix':#This part here is to clear for windows and mac
         os.system('clear')
     else:
-        os.system('cls')
+        os.system('cls')#This clears the screen for windows
 
+
+#Here we have created the fucntion to draw the hangman so depending on the amount of incorrect guesses the user has left determines how much of the hangman will be drawn.  The hangman was c reated by using ascii art.
 def whichdrawing(wrongguesses):
     if wrongguesses == 6:
         start()
