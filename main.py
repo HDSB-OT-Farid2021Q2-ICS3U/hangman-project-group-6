@@ -132,8 +132,9 @@ while play == 'Y':
       whichdrawing(guesses)
       guess = input("\nEnter a letter: ")
       guess = guess.lower()
+      
 
-      if guess.isalpha() == True:
+      if guess.isalpha() == True and len(guess) == 1:
           guessed_letters.append(guess)
           print(guessed_letters)
           if guess in word:
