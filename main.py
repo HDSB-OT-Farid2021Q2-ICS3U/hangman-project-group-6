@@ -1,4 +1,6 @@
-
+# Clarrie,Tk,Austin
+# date and time completed: Jn 18 2021
+#We have creted a hangman project that asks the user to geuss letters to see if they can get the word that we have pulled from our wordbank
 
 
 #importing all of the libraries we need
@@ -158,7 +160,7 @@ while play == 'Y':
             time.sleep(3)#giving them 3 seconds before screen is cleared
             clear()  #clearing screen
   if guesses == 0:#If they have exhausted all their lives they are here
-    print("Sorry, the word was:")
+    print("Sorry, the word was:") 
     word = [print(x, end = "") for x in word]#printing the word the user was trying to geuss
     print("\nBetter luck next time!")
   else:#Otherwise if they are here that is because we broke the loop above when they geussed the word
