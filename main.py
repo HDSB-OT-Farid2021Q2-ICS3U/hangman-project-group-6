@@ -105,56 +105,60 @@ def rightleg():
 |
 -----------""")
 
+play = 'Y'
 
+while play == 'Y':
+  words = ['butterball','elephant','tree','computer','bank','apple',
+          'house','orange','Albania','Armenia','Austria','Belgium',
+          'Bulgaria','Lamborghini','Toyota','Mercedes','Honda',
+          'Nissan','Chile','Pear','Calculator','Oven','Cat',
+          'Llizard','Iguana','Google','Phone','Wheels','Mouse',
+          'Lion','Leafs','Montreal','Toronto','California','Stump',
+          'Japan','Tokyo','Fast','Furious','Supra','super','Skyline',
+          'dinosaur','Case','Dirtbike','Yamaha','Mercury','Volvo',
+          'Suzuki','Boat','buffalo'
+          ]
 
+  guesses = 6
+  word = random.choice(words).lower()
+  word = list(word)
+  guessed_letters = []
+      
+  while guesses > 0:
+      hidden_word = [x if x in guessed_letters else '-' for x in word]
+      if '-' not in hidden_word:
+        break
+      print(" ".join(hidden_word))
+      whichdrawing(guesses)
+      guess = input("\nEnter a letter: ")
+      guess = guess.lower()
 
-words = ['butterball','elephant','tree','computer','bank','apple',
-         'house','orange','Albania','Armenia','Austria','Belgium',
-         'Bulgaria','Lamborghini','Toyota','Mercedes','Honda',
-         'Nissan','Chile','Pear','Calculator','Oven','Cat',
-         'Llizard','Iguana','Google','Phone','Wheels','Mouse',
-         'Lion','Leafs','Montreal','Toronto','California','Stump',
-         'Japan','Tokyo','Fast','Furious','Supra','super','Skyline',
-         'dinosaur','Case','Dirtbike','Yamaha','Mercury','Volvo',
-         'Suzuki','Boat','buffalo'
-        ]
+      if guess.isalpha() == True:
+          guessed_letters.append(guess)
+          print(guessed_letters)
+          if guess in word:
+              print("You have guessed a correct letter!")
+              time.sleep(3)
+              clear()
+          else:
+              guesses -= 1
+              print("Sorry, you have entered an incorrect letter.")
+              print("You have {} guesses left.".format(guesses))
+              time.sleep(3)
+              clear()
+      else:
+          print('You have entered an invalid input please try again with a letter')
+          time.sleep(3)
+          clear()  
+  if guesses == 0:
+    print("Sorry, the word was:")
+    word = [print(x, end = "") for x in word]
+    print("\nBetter luck next time!")
+  else:
+    print('You win!')
 
-guesses = 6
-word = random.choice(words).lower()
-word = list(word)
-guessed_letters = []
-    
-while guesses > 0:
-    hidden_word = [x if x in guessed_letters else '-' for x in word]
-    print(" ".join(hidden_word))
-    whichdrawing(guesses)
-    guess = input("\nEnter a letter: ")
-    guess = guess.lower()
-
-    if guess.isalpha() == True:
-        guessed_letters.append(guess)
-        print(guessed_letters)
-        if guess in word:
-            print("You have guessed a correct letter!")
-            time.sleep(3)
-            clear()
-        else:
-            guesses -= 1
-            print("Sorry, you have entered an incorrect letter.")
-            print("You have {} guesses left.".format(guesses))
-            time.sleep(3)
-            clear()
-    else:
-        print('You have entered an invalid input please try again with a letter')
-        time.sleep(3)
-        clear()
-    
-
-
-
-
-
-if guesses == 0:
-  print("Sorry, the word was:")
-  word = [print(x, end = "") for x in word]
-  print("\nBetter luck next time!")
+  play = input('Would you like to play again? [Y/N] ').upper()
+  if play == 'N':
+    print('Bye!')
+  elif play == 'Y':
+    continue
