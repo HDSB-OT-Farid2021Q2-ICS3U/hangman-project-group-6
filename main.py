@@ -143,13 +143,15 @@ while play == 'Y':
       
       print(" ".join(hidden_word))
       whichdrawing(guesses)#Calling whichdrawing and having it draw depending the amount of guesses left
+      if guessed_letters != []:
+        print(guessed_letters)#Printing the letters the user has already geussed so they can see them
+      
       guess = input("\nEnter a letter: ")#Having the user enter their input
       guess = guess.lower() #Lowercasing the user's guess
       
       if guess.isalpha() == True and len(guess) == 1:#Here we are making sure the users input is a letter and not more than one digit
         if guess not in guessed_letters:
             guessed_letters.append(guess)#Adding the users letter to the list of guessed letters
-            print(guessed_letters)#Printing the letters the user has already geussed so they can see them
             if guess in word:#If the users guess is in the word from the wordbank tell them it is correct
               print("You have guessed a correct letter!")
             else:
