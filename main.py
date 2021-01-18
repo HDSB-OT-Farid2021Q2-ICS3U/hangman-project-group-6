@@ -159,9 +159,9 @@ while play == 'Y':
             else:
                 guesses -= 1#If the user guessed an inccorect letter than they come here and we take away one of their lives
                 print("Sorry, you have entered an incorrect letter.")
-                print("You have {} guesses left.".format(guesses))#telling them how many lives they have left
+                print("You have {} wrong guesses left.".format(guesses))#telling them how many lives they have left
         else:
-          print("You have already typed a letter that you guessed. Please try again.")
+          print("You have typed a letter that you already guessed. Please try again.")
       else:
             print('You have entered an invalid input please try again')#If the users input is not a letter or longer than a digit telling them that then they just retart without taking away any lives
   
