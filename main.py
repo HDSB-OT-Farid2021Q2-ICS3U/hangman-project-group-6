@@ -139,20 +139,20 @@ while play == 'Y':
       whichdrawing(guesses)#Calling whichdrawing and having it draw depending the amount of guesses left
       guess = input("\nEnter a letter: ")#Having the user enter their input
       guess = guess.lower() #Lowercasing the users geuss
-      
-
       if guess.isalpha() == True and len(guess) == 1:#Here we are making sure the users input is a letter and not more than digit
+        if guess not in guessed_letters:
             guessed_letters.append(guess)#Adding the users letter to the list of guessed letters
             print(guessed_letters)#Printing the letters the user has already geussed so they can see them
             if guess in word:#If the users geuss is in the word from the wordbank tell them it is correct
               print("You have guessed a correct letter!")
-              
             else:
                 guesses -= 1#If the user geussed an inccorect letter than they come here and we take away one of their lives
                 print("Sorry, you have entered an incorrect letter.")
                 print("You have {} guesses left.".format(guesses))#telling them how many lives they have left
             time.sleep(3)#Giving the user 3 second to look things over before clearign the screen
             clear()#clearing the screen
+        else:
+          print("You have already typed a letter that you guessed. Please try again.")
       else:
             print('You have entered an invalid input please try again')#If the users input is not a letter or longer than a digit telling them that then they just retart without taking away any lives
             time.sleep(3)#giving them 3 seconds before screen is cleared
