@@ -11,6 +11,7 @@ import time
 #Here we are creating the clear fucntion to clear the screen for both windows and mac os.
 
 def clear():
+    """Fucntion to clear the screen"""
     if os.name == 'posix':#This part here is to clear for mac and repl
         os.system('clear')
     else:
@@ -19,6 +20,7 @@ def clear():
 
 #Here we have created the fucntion to draw the hangman so depending on the amount of incorrect guesses the user has left determines how much of the hangman will be drawn.  The hangman was created by using ascii art.
 def whichdrawing(guessesleft):
+    """Deciding which drawing to use"""
     if guessesleft == 6:
         start()
     elif guessesleft == 5:
