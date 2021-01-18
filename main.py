@@ -151,8 +151,8 @@ while play == 'Y':
                 guesses -= 1#If the user geussed an inccorect letter than they come here and we take away one of their lives
                 print("Sorry, you have entered an incorrect letter.")
                 print("You have {} guesses left.".format(guesses))#telling them how many lives they have left
-            time.sleep(3)
-            clear()
+            time.sleep(3)#Giving the user 3 second to look things over before clearign the screen
+            clear()#clearing the screen
       else:
             print('You have entered an invalid input please try again')#If the users input is not a letter or longer than a digit telling them that then they just retart without taking away any lives
             time.sleep(3)#giving them 3 seconds before screen is cleared
@@ -165,7 +165,7 @@ while play == 'Y':
     print('You win!')#telling them they won
 
   play = input('Would you like to play again? [Y/N] ').upper()#Asking them if they would like to play again and uppercasing the letter
-  if play == 'N':#If the user inptus n then printing and letting the porgram end
+  if play == 'N':#If play is n then the loop will not retart
     print('Bye!')
-  elif play == 'Y':#If they input W restarting the loop
-    continue
+  elif play == 'Y':#If they input Y then the loop will continue as it should
+    continue#having the loop continue again as there needed teh
