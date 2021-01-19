@@ -137,7 +137,7 @@ play = 'Y'
 #Loop will continue as long as the user still would like to play.
 while play == 'Y':
     #Here we have created a word bank for all of the possible words to be used in our hangman game
-  words = ['butterball','elephant','tree','computer','bank','apple',
+  words = ('butterball','elephant','tree','computer','bank','apple',
           'house','orange','Albania','Armenia','Austria','Belgium',
           'Bulgaria','Lamborghini','Toyota','Mercedes','Honda',
           'Nissan','Chile','Pear','Calculator','Oven','Cat',
@@ -146,7 +146,7 @@ while play == 'Y':
           'Japan','Tokyo','Fast','Furious','Supra','super','Skyline',
           'dinosaur','Case','Dirtbike','Yamaha','Mercury','Volvo',
           'Suzuki','Boat','buffalo','canada','spelling'
-          ]
+          )
 
   wrongguesses = 6   #Setting the amount of wrong guesses the user has to 6 
   word = random.choice(words).lower() #making sure all of the words from the list are lower
