@@ -1,6 +1,6 @@
 # Clarrie,Tk,Austin
 # date and time completed: Jn 18 2021
-#We have creted a hangman project that asks the user to geuss letters to see if they can get the word that we have pulled from our wordbank
+#We have created a hangman project that asks the user to guess letters to see if they can get the word that we have pulled from our wordbank
 
 
 #importing all of the libraries we need
@@ -130,13 +130,13 @@ while play == 'Y':
           'Suzuki','Boat','buffalo','canada','spelling'
           ]
 
-  guesses = 6   #Setting the amount of geusses the user has to 6 
+  guesses = 6   #Setting the amount of guesses the user has to 6 
   word = random.choice(words).lower() #making sure all of the words from the list are lower
   word = list(word)#making the variable a list
   guessed_letters = []#creating a list so we can add all of the guessed letter to it.
       
   while guesses > 0:#While guesses is above 0 the loop will continue
-      time.sleep(3)#Giving the user 3 second to look things over before clearign the screen
+      time.sleep(3)#Giving the user 3 second to look things over before clearing the screen
       clear()#clearing the screen
       hidden_word = [x if x in guessed_letters else '-' for x in word]
       
@@ -146,10 +146,9 @@ while play == 'Y':
       print(" ".join(hidden_word))
       whichdrawing(guesses)#Calling whichdrawing and having it draw depending the amount of guesses left
       if guessed_letters != []:
-        print(guessed_letters)#Printing the letters the user has already geussed so they can see them
+        print(guessed_letters)#Printing the letters the user has already guessed so they can see them
       
-      guess = input("\nEnter a letter: ")#Having the user enter their input
-      guess = guess.lower() #Lowercasing the user's guess
+      guess = input("\nEnter a letter: ").lower()#Having the user enter their input and lowercasing the user's guess
       
       if guess.isalpha() == True and len(guess) == 1:#Here we are making sure the users input is a letter and not more than one digit
         if guess not in guessed_letters:
@@ -165,14 +164,14 @@ while play == 'Y':
       else:
             print('You have entered an invalid input please try again')#If the users input is not a letter or longer than a digit telling them that then they just retart without taking away any lives
   
-  time.sleep(3)#Giving the user 3 second to look things over before clearign the screen
+  time.sleep(3)#Giving the user 3 seconds to look things over before clearing the screen
   clear()#clearing the screen
 
   if guesses == 0:#If they have exhausted all their lives they are here
     print("Sorry, the word was:") 
-    word = [print(x, end = "") for x in word]#printing the word the user was trying to geuss
+    word = [print(x, end = "") for x in word]#printing the word the user was trying to guess
     print("\nBetter luck next time!")
-  else:#Otherwise if they are here that is because we broke the loop above when they geussed the word
+  else:#Otherwise if they are here that is because we broke the loop above when they guessed the word
     print('You win!')#telling them they won
 
   play = input('Would you like to play again? [Y/N] ').upper()#Asking them if they would like to play again and uppercasing the letter
