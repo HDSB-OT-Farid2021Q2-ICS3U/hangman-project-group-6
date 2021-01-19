@@ -11,27 +11,29 @@ import time
 #Here we are creating the clear fucntion to clear the screen for both windows and mac os.
 
 def clear():
-    if os.name == 'posix':#This part here is to clear for windows and mac
+    """Fucntion to clear the screen"""
+    if os.name == 'posix':#This part here is to clear for mac and repl
         os.system('clear')
     else:
         os.system('cls')#This clears the screen for windows
 
 
 #Here we have created the fucntion to draw the hangman so depending on the amount of incorrect guesses the user has left determines how much of the hangman will be drawn.  The hangman was created by using ascii art.
-def whichdrawing(wrongguesses):
-    if wrongguesses == 6:
+def whichdrawing(guessesleft):
+    """Deciding which drawing to use"""
+    if guessesleft == 6:
         start()
-    elif wrongguesses == 5:
+    elif guessesleft == 5:
         head()
-    elif wrongguesses == 4:
+    elif guessesleft == 4:
         torso()
-    elif wrongguesses == 3:
+    elif guessesleft == 3:
         leftarm()
-    elif wrongguesses == 2:
+    elif guessesleft == 2:
         rightarm()
-    elif wrongguesses == 1:
+    elif guessesleft == 1:
         leftleg()
-    elif wrongguesses == 0:
+    elif guessesleft == 0:
         rightleg()
 #All the hangman ascii art
 def start():
@@ -131,34 +133,41 @@ while play == 'Y':
   guesses = 6   #Setting the amount of geusses the user has to 6 
   word = random.choice(words).lower() #making sure all of the words from the list are lower
   word = list(word)#making the variable a list
-  guessed_letters = []#creating a list so we can add all of the geussed letter to it.
+  guessed_letters = []#creating a list so we can add all of the guessed letter to it.
       
   while guesses > 0:#While guesses is above 0 the loop will continue
+      time.sleep(3)#Giving the user 3 second to look things over before clearign the screen
+      clear()#clearing the screen
       hidden_word = [x if x in guessed_letters else '-' for x in word]
+      
       if '-' not in hidden_word:
         break
+      
       print(" ".join(hidden_word))
       whichdrawing(guesses)#Calling whichdrawing and having it draw depending the amount of guesses left
+      if guessed_letters != []:
+        print(guessed_letters)#Printing the letters the user has already geussed so they can see them
+      
       guess = input("\nEnter a letter: ")#Having the user enter their input
-      guess = guess.lower() #Lowercasing the users geuss
-      if guess.isalpha() == True and len(guess) == 1:#Here we are making sure the users input is a letter and not more than digit
+      guess = guess.lower() #Lowercasing the user's guess
+      
+      if guess.isalpha() == True and len(guess) == 1:#Here we are making sure the users input is a letter and not more than one digit
         if guess not in guessed_letters:
             guessed_letters.append(guess)#Adding the users letter to the list of guessed letters
-            print(guessed_letters)#Printing the letters the user has already geussed so they can see them
-            if guess in word:#If the users geuss is in the word from the wordbank tell them it is correct
+            if guess in word:#If the users guess is in the word from the wordbank tell them it is correct
               print("You have guessed a correct letter!")
             else:
-                guesses -= 1#If the user geussed an inccorect letter than they come here and we take away one of their lives
+                guesses -= 1#If the user guessed an inccorect letter than they come here and we take away one of their lives
                 print("Sorry, you have entered an incorrect letter.")
-                print("You have {} guesses left.".format(guesses))#telling them how many lives they have left
-            time.sleep(3)#Giving the user 3 second to look things over before clearign the screen
-            clear()#clearing the screen
+                print("You have {} wrong guesses left.".format(guesses))#telling them how many lives they have left
         else:
-          print("You have already typed a letter that you guessed. Please try again.")
+          print("You have typed a letter that you already guessed. Please try again.")
       else:
             print('You have entered an invalid input please try again')#If the users input is not a letter or longer than a digit telling them that then they just retart without taking away any lives
-            time.sleep(3)#giving them 3 seconds before screen is cleared
-            clear()  #clearing screen
+  
+  time.sleep(3)#Giving the user 3 second to look things over before clearign the screen
+  clear()#clearing the screen
+
   if guesses == 0:#If they have exhausted all their lives they are here
     print("Sorry, the word was:") 
     word = [print(x, end = "") for x in word]#printing the word the user was trying to geuss
