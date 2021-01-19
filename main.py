@@ -129,9 +129,10 @@ def rightleg():
 
 
 
- #Setting the variable play to y so that the first time the user loads up the game they will automatically be entered into the game
+clear()
 startScreen()
 
+#Setting the variable play to y so that the first time the user loads up the game they will automatically be entered into the game
 play = 'Y'
 #Loop will continue as long as the user still would like to play.
 while play == 'Y':
@@ -147,12 +148,12 @@ while play == 'Y':
           'Suzuki','Boat','buffalo','canada','spelling'
           ]
 
-  guesses = 6   #Setting the amount of guesses the user has to 6 
+  wrongguesses = 6   #Setting the amount of wrong guesses the user has to 6 
   word = random.choice(words).lower() #making sure all of the words from the list are lower
   word = list(word)#making the variable a list
   guessed_letters = []#creating a list so we can add all of the guessed letter to it.
       
-  while guesses > 0:#While guesses is above 0 the loop will continue
+  while wrongguesses > 0:#While guesses is above 0 the loop will continue
       time.sleep(3)#Giving the user 3 second to look things over before clearing the screen
       clear()#clearing the screen
       hidden_word = [x if x in guessed_letters else '-' for x in word]#goes throught he hidden word and prints the letter if the letter is in the guessesd letters list otherwise it prints a dash
@@ -161,7 +162,7 @@ while play == 'Y':
         break
       
       print(" ".join(hidden_word))
-      whichdrawing(guesses)#Calling whichdrawing and having it draw depending the amount of guesses left
+      whichdrawing(wrongguesses)#Calling whichdrawing and having it draw depending the amount of guesses left
       if guessed_letters != []:
         print(guessed_letters)#Printing the letters the user has already guessed so they can see them
       
@@ -173,9 +174,9 @@ while play == 'Y':
             if guess in word:#If the users guess is in the word from the wordbank tell them it is correct
               print("You have guessed a correct letter!")
             else:
-                guesses -= 1#If the user guessed an inccorect letter than they come here and we take away one of their lives
+                wrongguesses -= 1#If the user guessed an inccorect letter than they come here and we take away one of their lives
                 print("Sorry, you have entered an incorrect letter.")
-                print("You have {} wrong guesses left.".format(guesses))#telling them how many lives they have left
+                print("You have {} wrong guesses left.".format(wrongguesses))#telling them how many lives they have left
         else:
           print("You have typed a letter that you already guessed. Please try again.")
       else:
@@ -184,7 +185,7 @@ while play == 'Y':
   time.sleep(3)#Giving the user 3 seconds to look things over before clearing the screen
   clear()#clearing the screen
 
-  if guesses == 0:#If they have exhausted all their lives they are here
+  if wrongguesses == 0:#If they have exhausted all their lives they are here
     print("Sorry, the word was:") 
     word = [print(x, end = "") for x in word]#printing the word the user was trying to guess
     print("\nBetter luck next time!")
@@ -193,6 +194,7 @@ while play == 'Y':
 
   play = input('Would you like to play again? [Y/N] ').upper()#Asking them if they would like to play again and uppercasing the letter
   if play == 'N':#If play is n then the loop will not retart
+    clear()
     print('Bye!')
   elif play == 'Y':#If they input Y then the loop will continue as it should
     continue#having the loop continue again as there needed teh
