@@ -37,6 +37,7 @@ def whichdrawing(guessesleft):
         rightleg()
 #All the hangman ascii art
 def start():
+    """hanging part"""
   print(r"""_______           
 |     |
 |
@@ -48,6 +49,7 @@ def start():
 -----------""")
 
 def head():
+    """head"""
   print(r"""_______           
 |     |
 |     O
@@ -59,6 +61,7 @@ def head():
 -----------""")
 
 def torso():
+    """Head and body"""
   print(r"""_______           
 |     |
 |     O
@@ -70,6 +73,7 @@ def torso():
 -----------""")
 
 def leftarm():
+    """Head,body,left arm"""
   print(r"""_______           
 |     |
 |     O
@@ -81,6 +85,7 @@ def leftarm():
 -----------""")
 
 def rightarm():
+    """Head,body,left arm,right arm"""
   print(r"""_______           
 |     |
 |     O
@@ -92,6 +97,7 @@ def rightarm():
 -----------""")
 
 def leftleg():
+    """Head,body,left arm,right arm,left leg"""
   print(r"""_______           
 |     |
 |     O
@@ -103,6 +109,7 @@ def leftleg():
 -----------""")
 
 def rightleg():
+    """Full Body"""
   print(r"""_______           
 |     |
 |     O
@@ -112,6 +119,8 @@ def rightleg():
 |   /   \
 |
 -----------""")
+
+
 
  #Setting the variable play to y so that the first time the user loads up the game they will automatically be entered into the game
 
@@ -138,7 +147,7 @@ while play == 'Y':
   while guesses > 0:#While guesses is above 0 the loop will continue
       time.sleep(3)#Giving the user 3 second to look things over before clearing the screen
       clear()#clearing the screen
-      hidden_word = [x if x in guessed_letters else '-' for x in word]
+      hidden_word = [x if x in guessed_letters else '-' for x in word]#goes throught he hidden word and prints the letter if the letter is in the guessesd letters list otherwise it prints a dash
       
       if '-' not in hidden_word:
         break
