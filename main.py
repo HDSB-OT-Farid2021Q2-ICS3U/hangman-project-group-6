@@ -10,12 +10,19 @@ import time
 
 #Here we are creating the clear fucntion to clear the screen for both windows and mac os.
 
+
 def clear():
     """Fucntion to clear the screen"""
     if os.name == 'posix':#This part here is to clear for mac and repl
         os.system('clear')
     else:
         os.system('cls')#This clears the screen for windows
+
+def startScreen():
+    """Start Screen For user"""
+    print('To win the game you have to guess the word before the whole hangman is drawn.')
+    time.sleep(3)
+    clear()
 
 
 #Here we have created the fucntion to draw the hangman so depending on the amount of incorrect guesses the user has left determines how much of the hangman will be drawn.  The hangman was created by using ascii art.
@@ -38,7 +45,7 @@ def whichdrawing(guessesleft):
 #All the hangman ascii art
 def start():
     """hanging part"""
-  print(r"""_______           
+    print(r"""_______           
 |     |
 |
 |
@@ -50,7 +57,7 @@ def start():
 
 def head():
     """head"""
-  print(r"""_______           
+    print(r"""_______           
 |     |
 |     O
 |
@@ -62,7 +69,7 @@ def head():
 
 def torso():
     """Head and body"""
-  print(r"""_______           
+    print(r"""_______           
 |     |
 |     O
 |     |
@@ -74,7 +81,7 @@ def torso():
 
 def leftarm():
     """Head,body,left arm"""
-  print(r"""_______           
+    print(r"""_______           
 |     |
 |     O
 |    /|
@@ -86,7 +93,7 @@ def leftarm():
 
 def rightarm():
     """Head,body,left arm,right arm"""
-  print(r"""_______           
+    print(r"""_______           
 |     |
 |     O
 |    /|\
@@ -98,7 +105,7 @@ def rightarm():
 
 def leftleg():
     """Head,body,left arm,right arm,left leg"""
-  print(r"""_______           
+    print(r"""_______           
 |     |
 |     O
 |    /|\
@@ -110,7 +117,7 @@ def leftleg():
 
 def rightleg():
     """Full Body"""
-  print(r"""_______           
+    print(r"""_______           
 |     |
 |     O
 |    /|\
@@ -123,6 +130,7 @@ def rightleg():
 
 
  #Setting the variable play to y so that the first time the user loads up the game they will automatically be entered into the game
+startScreen()
 
 play = 'Y'
 #Loop will continue as long as the user still would like to play.
