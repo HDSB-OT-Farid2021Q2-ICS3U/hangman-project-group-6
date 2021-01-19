@@ -191,7 +191,7 @@ while play == 'Y':
     word = [print(x, end = "") for x in word]#printing the word the user was trying to guess
     print("\nBetter luck next time!")
   else:#Otherwise if they are here that is because we broke the loop above when they guessed the word
-    print('You win!')#telling them they won
+    print('Congratulations on your win!')#telling them they won
 
   play = input('Would you like to play again? [Y/N] ').upper()#Asking them if they would like to play again and uppercasing the letter
   if play == 'N':#If play is n then the loop will not retart
