@@ -1,6 +1,6 @@
 # main.py
 # Clarrie,Tk,Austin
-# date and time completed: Jn 19 2021
+# date and time completed: Jan 19 2021 8:16 pm
 # We have created a hangman project that asks the user to guess letters to see if they can get the word that we have pulled from our wordbank
 
 
@@ -28,7 +28,7 @@ def startScreen():
 
 #Here we have created the fucntion to draw the hangman so depending on the amount of incorrect guesses the user has left determines how much of the hangman will be drawn.  The hangman was created by using ascii art.
 def whichdrawing(guessesleft):
-    """Deciding which drawing to use"""
+    """Deciding which drawing to use (string), takes parameter guessesleft"""
     if guessesleft == 6:
         start()
     elif guessesleft == 5:
@@ -155,11 +155,11 @@ while play == 'Y':
   guessed_letters = []#creating a list so we can add all of the guessed letter to it.
       
   while wrongguesses > 0:#While guesses is above 0 the loop will continue
-      time.sleep(3)#Giving the user 3 second to look things over before clearing the screen
+      time.sleep(3)#Giving the user 3 seconds to look things over before clearing the screen
       clear()#clearing the screen
       hidden_word = [x if x in guessed_letters else '-' for x in word]#goes throught he hidden word and prints the letter if the letter is in the guessesd letters list otherwise it prints a dash
       
-      if '-' not in hidden_word:
+      if '-' not in hidden_word: # loop ends if user has guessed all letters in hidden_word
         break
       
       print(" ".join(hidden_word))
@@ -198,4 +198,4 @@ while play == 'Y':
     clear()
     print('Bye!')
   elif play == 'Y':#If they input Y then the loop will continue as it should
-    continue#having the loop continue again as there needed teh
+    continue
