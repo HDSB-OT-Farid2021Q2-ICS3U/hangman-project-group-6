@@ -8,6 +8,8 @@
 import random
 import os
 import time
+import colorama
+colorama.init()
 
 #Here we are creating the clear fucntion to clear the screen for both windows and mac os.
 
@@ -21,7 +23,10 @@ def clear():
 
 def startScreen():
     """Start Screen For user"""
-    print('To win the game you have to guess the word before the whole hangman is drawn.')
+    print(colorama.Style.BRIGHT, colorama.Fore.YELLOW, 'SAVE STEVE')
+    print(colorama.Style.DIM, colorama.Fore.RED, 'hangman 2.0')
+    print(colorama.Style.RESET_ALL, ' To win the game you have to guess the word before the whole hangman is drawn.')
+    rightleg()
     time.sleep(3)
     clear()
 
